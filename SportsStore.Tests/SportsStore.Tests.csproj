@@ -14,4 +14,9 @@
     <DotNetCliToolReference Include="dotnet-xunit" Version="2.3.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SportsStore.DataLayer\SportsStore.DataLayer.csproj" />
+    <ProjectReference Include="..\SportsStore.Web\SportsStore.Web.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27703.2018
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Web", "SportsStore.Web\SportsStore.Web.csproj", "{8ACE5433-919A-42C7-9F01-C1001594B6D8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsStore.Web", "SportsStore.Web\SportsStore.Web.csproj", "{8ACE5433-919A-42C7-9F01-C1001594B6D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.Tests", "SportsStore.Tests\SportsStore.Tests.csproj", "{92512BAA-FE69-4E15-8DB4-039C36F95BCC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsStore.Tests", "SportsStore.Tests\SportsStore.Tests.csproj", "{92512BAA-FE69-4E15-8DB4-039C36F95BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.DomainModels", "SportsStore.DomainModels\SportsStore.DomainModels.csproj", "{5951863B-A2F7-4F5B-A325-0875F9790852}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SportsStore.DomainModels", "SportsStore.DomainModels\SportsStore.DomainModels.csproj", "{5951863B-A2F7-4F5B-A325-0875F9790852}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.DataAccess", "SportsStore.DataAccess\SportsStore.DataAccess.csproj", "{BE19B270-3511-45EA-8AA6-73B92B85292F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportsStore.DataLayer", "SportsStore.DataLayer\SportsStore.DataLayer.csproj", "{82A7387B-3066-4AC5-BB46-EC680E86DD71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +31,14 @@ Global
 		{5951863B-A2F7-4F5B-A325-0875F9790852}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5951863B-A2F7-4F5B-A325-0875F9790852}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5951863B-A2F7-4F5B-A325-0875F9790852}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE19B270-3511-45EA-8AA6-73B92B85292F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE19B270-3511-45EA-8AA6-73B92B85292F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE19B270-3511-45EA-8AA6-73B92B85292F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE19B270-3511-45EA-8AA6-73B92B85292F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A7387B-3066-4AC5-BB46-EC680E86DD71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A7387B-3066-4AC5-BB46-EC680E86DD71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A7387B-3066-4AC5-BB46-EC680E86DD71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A7387B-3066-4AC5-BB46-EC680E86DD71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
