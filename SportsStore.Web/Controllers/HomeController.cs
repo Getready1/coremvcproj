@@ -6,6 +6,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 using SportsStore.DataLayer.Repositories.Interfaces;
 using SportsStore.DomainModels;
+using SportsStore.Web.Configs;
 using SportsStore.Web.ViewModels;
 
 namespace SportsStore.Web.Controllers
@@ -14,25 +15,37 @@ namespace SportsStore.Web.Controllers
     {
 		private IProductRepository productRepository;
 		private IMapper mapper;
+		private ICommonConfig configs;
 
-		public int PageSize { get; set; } = 3;
-
-		public HomeController(IProductRepository productRepository, IMapper mapper)
+		public HomeController(IProductRepository productRepository, IMapper mapper, ICommonConfig configs)
 		{
 			this.productRepository = productRepository;
 			this.mapper = mapper;
+			this.configs = configs;
 		}
 
-		public IActionResult Index(int productPage = 1)
+		public IActionResult Index(int page = 1)
         {
 			var list = mapper.Map<List<Product>, List<ProductViewModel>>(productRepository.Products.ToList());
 
-			return View(
-						list.OrderBy(p => p.ProductId)
-							.Skip((productPage - 1) * PageSize)
-							.Take(PageSize)
-							.ToList()
-							);
+			PagingInfo pagingInfo = new PagingInfo
+			{
+				CurrentPage = page,
+				TotalItems = list.Count,
+				ItemsPerPage = configs.ElementsPerPage,
+				FilledManually = true
+			};
+
+			var sortedList = list.OrderBy(p => p.ProductId)
+								.Skip((pagingInfo.CurrentPage - 1) * pagingInfo.ItemsPerPage)
+								.Take(pagingInfo.ItemsPerPage)
+								.ToList();
+
+			return View(new ListViewModel<ProductViewModel>
+			{
+				List = sortedList,
+				PagingInfo = pagingInfo
+			});
         }
     }
 }

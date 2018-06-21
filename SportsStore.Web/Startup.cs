@@ -16,6 +16,7 @@ using SportsStore.Web.ViewModels;
 using Microsoft.Extensions.Configuration;
 using SportsStore.DataAccess;
 using Microsoft.EntityFrameworkCore;
+using SportsStore.Web.Configs;
 
 namespace SportsStore.Web
 {
@@ -42,7 +43,8 @@ namespace SportsStore.Web
 
 			var builder = new ContainerBuilder();
 			builder.Populate(services);
-			builder.RegisterType<ProductRepository>().As<IProductRepository>();
+			builder.RegisterType<ProductRepository>().As<IProductRepository>().SingleInstance();
+			builder.RegisterType<CommonConfig>().As<ICommonConfig>().SingleInstance();
 			builder.RegisterInstance(Mapper.Instance);
 			ApplicationContainer = builder.Build();
 

@@ -1,4 +1,4 @@
-﻿@model List<ProductViewModel>
+﻿@model ListViewModel<ProductViewModel>
 
 @{
     ViewData["Title"] = "Index";
@@ -6,7 +6,9 @@
 
 <h2>Index</h2>
 
-@foreach(var product in Model)
+@foreach(var product in Model.List)
 {
 	<div>@product.Name</div>
 }
+
+	<div paging-model="@Model.PagingInfo" page-action="Index"></div>

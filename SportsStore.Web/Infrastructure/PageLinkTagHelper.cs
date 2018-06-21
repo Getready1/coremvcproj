@@ -4,13 +4,10 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 using Microsoft.AspNetCore.Razor.TagHelpers;
 using SportsStore.Web.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SportsStore.Web.Infrastructure
 {
+	[HtmlTargetElement("div", Attributes = "paging-model")]
     public class PageLinkTagHelper : TagHelper
     {
 		private IUrlHelperFactory urlHelperFactory;
@@ -36,7 +33,7 @@ namespace SportsStore.Web.Infrastructure
 			for (int i = 1; i <= PagingModel.TotalPages; i++)
 			{
 				TagBuilder tag = new TagBuilder("a");
-				tag.Attributes["href"] = urlHelper.Action(ActionName, new { productPage = i });
+				tag.Attributes["href"] = urlHelper.Action(ActionName, new { page = i });
 				tag.InnerHtml.Append(i.ToString());
 				result.InnerHtml.AppendHtml(tag);
 			}
